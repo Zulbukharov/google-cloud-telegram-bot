@@ -14,7 +14,7 @@ from google.appengine.api import urlfetch
 from google.appengine.ext import ndb
 import webapp2
 
-TOKEN = 'YOUR_BOT_TOKEN_HERE'
+TOKEN = '482215090:AAF-kZdSWeqL184xWzyAMBEMKPLiHOCZgmI'
 
 BASE_URL = 'https://api.telegram.org/bot' + TOKEN + '/'
 
@@ -118,7 +118,7 @@ class WebhookHandler(webapp2.RequestHandler):
             elif text == '/image':
                 img = Image.new('RGB', (512, 512))
                 base = random.randint(0, 16777216)
-                pixels = [base+i*j for i in range(512) for j in range(512)]  # generate sample image
+                pixels = [base+i*j for i in range(512) for j in range(512)] 
                 img.putdata(pixels)
                 output = StringIO.StringIO()
                 img.save(output, 'JPEG')
@@ -126,10 +126,7 @@ class WebhookHandler(webapp2.RequestHandler):
             else:
                 reply('What command?')
 
-        # CUSTOMIZE FROM HERE
-
-        elif 'who are you' in text:
-            reply('telebot starter kit, created by yukuku: https://github.com/yukuku/telebot')
+       
         elif 'what time' in text:
             reply('look at the corner of your screen!')
         else:
